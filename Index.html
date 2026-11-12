@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>UsernameFlexer</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;background:#090710;color:#fff;font-family:Arial,sans-serif}
+
+main{max-width:900px;margin:auto;padding:70px 22px;text-align:center}
+
+.logo{font-size:19px;font-weight:800;color:#c5a5ff}
+
+h1{font-size:clamp(42px,9vw,76px);margin:65px 0 12px}
+
+h1 span{color:#b58aff}
+
+p{color:#aaa;line-height:1.6}
+
+input,button{padding:15px;border:1px solid #393044;border-radius:12px;background:#171222;color:white;font-size:16px}
+
+input{width:100%;max-width:380px;margin:18px 0 10px}
+
+button{background:#a66cff;color:#160b24;font-weight:bold;border:0;cursor:pointer}
+
+.result{margin:15px auto;color:#d7baff;overflow-wrap:anywhere}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:65px;text-align:left}
+
+.card{background:#15111e;border:1px solid #30263c;border-radius:16px;padding:22px}
+
+.card h3{margin-top:0}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<div class="logo">✦ USERNAMEFLEXER</div>
+
+<h1>Don't just have a username.<br><span>FLEX IT.</span></h1>
+
+<p>Discover rare names. Create your identity. Make your username unforgettable.</p>
+
+<h2>Username Generator</h2>
+
+<input id="length" type="number" min="1" max="67" value="8" aria-label="Username length">
+
+<br>
+
+<button onclick="generate()">Generate username</button>
+
+<div class="result" id="result">Your next username starts here.</div>
+
+<div class="cards">
+
+<div class="card"><h3>✦ Rare usernames</h3><p>Explore unique names and find your next identity.</p></div>
+
+<div class="card"><h3>◈ Your profile</h3><p>Build a page that shows off your style.</p></div>
+
+<div class="card"><h3>⚡ Make it yours</h3><p>Customize your look, colors and vibe.</p></div>
+
+</div>
+
+<p style="margin-top:55px">UsernameFlexer — your name, your identity.</p>
+
+</main>
+
+<script>
+
+function generate(){
+
+ const chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@$%^&*()-_=+[]{};:,.?/\\|~`";
+
+ const input=document.getElementById("length");
+
+ const length=Math.max(1,Math.min(67,Number(input.value)||8));
+
+ let name="";
+
+ for(let i=0;i<length;i++) name+=chars[Math.floor(Math.random()*chars.length)];
+
+ document.getElementById("result").textContent=name;
+
+}
+
+</script>
+
+</body>
+
+</html>
